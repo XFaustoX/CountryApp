@@ -5,12 +5,12 @@ import { AboutPageComponent } from './shared/pages/about-page/about-page.compone
 import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
 
 const routes: Routes = [
-  {
-    //path para que en la url diga home
-    path: '',
-    // component la pagina que se mostrara
-    component: HomePageComponent
-  },
+  // {
+  //   //path para que en la url diga home
+  //   path: '',
+  //   // component la pagina que se mostrara
+  //   component: HomePageComponent
+  // },
   {
     path: 'about',
     component: AboutPageComponent
@@ -20,9 +20,12 @@ const routes: Routes = [
     component: ContactPageComponent
   },
   {
+    path: 'countries',
+    loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)},
+  {
     path: '**',
     //para redirigir a la pagina de home
-    redirectTo: ''
+    redirectTo: 'countries'
   }
 
 ];
